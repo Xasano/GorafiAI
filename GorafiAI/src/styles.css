@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #F7F1E9; /* Couleur de fond de la page */
+  }
+  
+  .header {
+    background-color: #D9D9D9; /* Gris clair pour le fond du header */
+    padding: 10px 20px; /* Espacement interne pour donner un peu d'air */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre subtile pour un effet de profondeur */
+  }
+  
+  .container {
+    max-width: 1200px; /* Largeur maximale du contenu */
+    margin: 0 auto; /* Centrer dans la page */
+    display: flex; /* Utiliser flexbox pour aligner les éléments horizontalement */
+    justify-content: space-between; /* Espacer les éléments uniformément */
+    align-items: center; /* Aligner les éléments verticalement */
+  }
+  
+  .header h1 {
+    margin: 0; /* Annuler la marge par défaut du h1 */
+    font-size: 24px; /* Taille de la police pour le titre */
+    color: #333; /* Couleur du texte pour assurer une bonne lisibilité sur fond gris */
+  }
+  
+  nav ul {
+    list-style: none; /* Enlever les puces */
+    padding: 0; /* Enlever le padding par défaut */
+    margin: 0; /* Enlever la marge par défaut */
+    display: flex; /* Aligner les liens horizontalement */
+  }
+  
+  nav li {
+    margin-left: 20px; /* Espacer les liens */
+  }
+  
+  nav a {
+    text-decoration: none; /* Enlever le soulignement */
+    color: #333; /* Couleur du texte pour les liens, sombre pour contraster avec le fond gris */
+    font-size: 16px; /* Taille de la police pour les liens */
+  }
+  
