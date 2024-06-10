@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mongodb:
+    container_name: mongo_container
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb_data_container:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_ROOT_DATABASE=GorafiAI_mongodb
+    networks:
+      - asmd_net
+
+  angular:
+    container_name: GorafiAI_Website_container
+    build:
+      context: ./GorafiAI
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+    depends_on:
+      - mongodb
+    networks:
+      - asmd_net
+
+networks:
+  asmd_net:
+    driver: bridge
