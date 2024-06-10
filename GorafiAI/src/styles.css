@@ -1,41 +1,73 @@
 body {
-    background-color: #F7F1E9; /* Couleur de fond de la page */
-  }
-  
-  .header {
-    background-color: #D9D9D9; /* Gris clair pour le fond du header */
-    padding: 10px 20px; /* Espacement interne pour donner un peu d'air */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre subtile pour un effet de profondeur */
-  }
-  
-  .container {
-    max-width: 1200px; /* Largeur maximale du contenu */
-    margin: 0 auto; /* Centrer dans la page */
-    display: flex; /* Utiliser flexbox pour aligner les éléments horizontalement */
-    justify-content: space-between; /* Espacer les éléments uniformément */
-    align-items: center; /* Aligner les éléments verticalement */
-  }
-  
-  .header h1 {
-    margin: 0; /* Annuler la marge par défaut du h1 */
-    font-size: 24px; /* Taille de la police pour le titre */
-    color: #333; /* Couleur du texte pour assurer une bonne lisibilité sur fond gris */
-  }
-  
-  nav ul {
-    list-style: none; /* Enlever les puces */
-    padding: 0; /* Enlever le padding par défaut */
-    margin: 0; /* Enlever la marge par défaut */
-    display: flex; /* Aligner les liens horizontalement */
-  }
-  
-  nav li {
-    margin-left: 20px; /* Espacer les liens */
-  }
-  
-  nav a {
-    text-decoration: none; /* Enlever le soulignement */
-    color: #333; /* Couleur du texte pour les liens, sombre pour contraster avec le fond gris */
-    font-size: 16px; /* Taille de la police pour les liens */
-  }
-  
+  background-color: #F7F1E9; 
+}
+
+.header {
+  background-color: #D9D9D9; 
+  padding: 20px 0; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15); 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 70px; 
+}
+
+.container {
+  max-width: 1200px; 
+  width: 100%; 
+  margin: 0 auto; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.header nav ul {
+  list-style: none; 
+  padding: 0; 
+  margin: 0 40px; 
+  display: flex; 
+  width: 100%; 
+  justify-content: space-between;
+}
+
+.header nav li {
+  display: flex;
+  justify-content: center; 
+  flex-grow: 1; 
+}
+
+.header nav a {
+  text-decoration: none; 
+  color: #333; 
+  font-size: 40px; 
+  font-weight: bold; 
+  padding: 0 60px; 
+}
+
+.footer {
+  background-color: #D9D9D9; 
+  padding: 20px 40px; 
+  box-shadow: 0 -4px 6px rgba(0,0,0,0.15); 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 70px; 
+  font-size: 40px; 
+  font-weight: bold; 
+  color: #333; 
+  position: absolute; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto; 
+  width: calc(100% - 100px); /* Réduit la largeur totale pour créer un espace sur les côtés */
+}
+
+.footer .container {
+  max-width: 1200px;
+  width: 100%; 
+  margin: 0 auto; 
+  text-align: center; 
+}
+
