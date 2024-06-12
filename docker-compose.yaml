@@ -5,6 +5,7 @@ services:
     image: mongo:latest
     ports:
       - 27017:27017
+    restart: always
     volumes:
       - ./mongodb_data_container:/data/db
     environment:
@@ -21,8 +22,10 @@ services:
       dockerfile: Dockerfile
     environment:
       MONGODB_URI: mongodb://admin:password@mongodb:27017/gorafiaidb?authSource=admin
+      OPENAI_API_KEY: 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
     ports:
       - 3000:3000
+    restart: always
     depends_on:
       - mongodb
     networks:
@@ -35,6 +38,7 @@ services:
       dockerfile: Dockerfile
     environment:
       API_URL: http://api:3000
+    restart: always
     ports:
       - 4200:4200
     depends_on:
