@@ -7,9 +7,9 @@ GorafiAI/out-tsc
 GorafiAI/bazel-out
 
 # Node
-GorafiAI/node_modules
-GorafiAI/npm-debug.log
-GorafiAI/yarn-error.log
+*/node_modules
+*/npm-debug.log
+*/yarn-error.log
 
 # Visual Studio Code
 GorafiAI/.vscode
