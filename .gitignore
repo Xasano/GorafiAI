@@ -1,0 +1,31 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+GorafiAI/dist
+GorafiAI/tmp
+GorafiAI/out-tsc
+GorafiAI/bazel-out
+
+# Node
+GorafiAI/node_modules
+GorafiAI/npm-debug.log
+GorafiAI/yarn-error.log
+
+# Visual Studio Code
+GorafiAI/.vscode
+
+# Miscellaneous
+GorafiAI/.angular/cache
+GorafiAI/.sass-cache/
+GorafiAI/connect.lock
+GorafiAI/coverage
+GorafiAI/libpeerconnection.log
+GorafiAI/testem.log
+GorafiAI/typings
+
+# System files
+GorafiAI/.DS_Store
+GorafiAI/Thumbs.db
+
+# MongoFiles
+mongodb_data_container
