@@ -30,12 +30,14 @@ const articleSchema = new mongoose.Schema({
 const Article = mongoose.model('Article', articleSchema);
 
 // route api
-app.post('/api/articles', (req, res) => {
-  const newArticle = new Article(req.body);
-  newArticle.save((err, article) => {
-    if (err) return res.status(500).send(err);
-    return res.status(200).send(article);
-  });
+app.post('/api/articles', async (req, res) => {
+    try {
+        const newArticle = new Article(req.body);
+        const article = await newArticle.save();
+        res.status(200).send(article);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
 app.listen(port, () => {
