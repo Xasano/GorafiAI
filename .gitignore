@@ -1,31 +1,31 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+GorafiAI/dist
+GorafiAI/tmp
+GorafiAI/out-tsc
+GorafiAI/bazel-out
 
 # Node
-/node_modules
-npm-debug.log
-yarn-error.log
+GorafiAI/node_modules
+GorafiAI/npm-debug.log
+GorafiAI/yarn-error.log
 
 # Visual Studio Code
 GorafiAI/.vscode
 
 # Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+GorafiAI/.angular/cache
+GorafiAI/.sass-cache/
+GorafiAI/connect.lock
+GorafiAI/coverage
+GorafiAI/libpeerconnection.log
+GorafiAI/testem.log
+GorafiAI/typings
 
 # System files
-.DS_Store
-Thumbs.db
+GorafiAI/.DS_Store
+GorafiAI/Thumbs.db
 
 # MongoFiles
 mongodb_data_container
