@@ -1,26 +1,52 @@
+/* Reset de styles pour tous les liens dans le composant articles */
+.articles a, .articles a:visited {
+  text-decoration: none; /* Supprime le soulignement */
+  color: black; /* Couleur du texte */
+}
+
+.articles a:hover, .articles a:active {
+  text-decoration: underline; /* Ajoute un soulignement au survol, si désiré */
+  color: darkblue; /* Change la couleur au survol */
+}
 
 .articles {
-    display: flex;
-    background: #FFFFFF;
-    padding: 20px;
-    margin: 20px;
-    border: 1px solid #CCCCCC; /* Séparateur */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .articles-image {
-    width: 150px; 
-    height: auto;
-    margin-right: 20px;
-  }
-  
-  .articles-text h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .articles-text p {
-    font-size: 16px;
-  }
-  
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.articles-image {
+  width: 150px;
+  height: auto;
+  margin-left: 20px;
+}
+
+.articles-text {
+  flex-grow: 1;
+}
+
+.articles-text h1, .articles-text p {
+  margin: 0; /* Supprime les marges par défaut */
+}
+
+.articles-text h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.articles-text p {
+  font-size: 16px;
+}
+
+/* Ajoutez des classes pour gérer spécifiquement le style des titres et des résumés dans les liens */
+.article-link {
+  display: block; /* Fait que le lien prend toute la largeur du texte pour faciliter le clic */
+}
+
+.article-link h1, .article-link p {
+  margin: 0; /* S'assure qu'il n'y a pas de marge ajoutée qui affecte le layout */
+}

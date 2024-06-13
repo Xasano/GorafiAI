@@ -1,3 +1,4 @@
+<!-- articles.component.html statique-->
 <div class="articles">
     <div class="articles-text">
       <h1>Nouvelle Tendance : Les Licornes Domestiques</h1>
@@ -13,3 +14,16 @@
       <img src="https://th.bing.com/th/id/R.78ade77b326bc5e0bfe04c2acae697a5?rik=r9Um8UFrv39Acg&riu=http%3a%2f%2fstatic.pix-geeks.com%2f2016%2f06%2ftempete-de-boulettes-geantes-59825-600x315.jpg&ehk=oFVbyT8nPQ%2boCwbqpKphDEu65FxIj%2fMLedU82GD6BxU%3d&risl=&pid=ImgRaw&r=0" alt="Futuristic Pet Robot" class="articles-image">
     </div>
 </div>
+
+<!-- articles.component.html dynamique -->
+<div *ngFor="let article of articles" class="articles">
+  <a [routerLink]="['/articles', article.id]" class="articles-text">
+    <div>
+      <h1>{{ article.titre }}</h1>
+      <p>{{ article.resume }}</p>
+      <img [src]="article.photo" alt="{{ article.titre }}" class="articles-image">
+    </div>
+    <!--<img [src]="article.photo" alt="{{ article.titre }}" class="articles-image">-->
+  </a>
+</div>
+

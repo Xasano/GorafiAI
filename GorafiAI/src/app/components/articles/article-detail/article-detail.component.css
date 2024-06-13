@@ -1,0 +1,26 @@
+
+.articles-detail {
+    display: flex;
+    background: #FFFFFF;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #CCCCCC; /* Séparateur */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .articles-detail-image {
+    width: 150px; 
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .articles-detail-text h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .articles-text p {
+    font-size: 16px;
+  }
+  
