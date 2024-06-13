@@ -38,7 +38,7 @@ const articleSchema = new mongoose.Schema({
 const Article = mongoose.model('Article', articleSchema);
 
 // route api
-app.post('/api/articles', async (req, res) => {
+app.post('/api/generate-article', async (req, res) => {
 
   if(!req.body.titre || !req.body.auteur) {
     return res.status(400).send('Titre et auteur requis');
