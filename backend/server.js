@@ -58,7 +58,7 @@ app.post('/api/generate-article', async (req, res) => {
 
   response = await openai.images.generate({
     model: "dall-e-2",
-    prompt: "a white siamese cat",
+    prompt: req.body.titre,
     n: 1,
     size: "1024x1024",
     });

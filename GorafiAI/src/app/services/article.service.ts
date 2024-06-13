@@ -8,14 +8,20 @@ import { Article } from '../models/article';
 })
 
 export class ArticleService {
-  private apiUrl = 'http://localhost:3000/api/articles'; // URL API
-
   constructor(private http: HttpClient) {}
+
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.apiUrl);
+    return this.http.get<Article[]>('http://localhost:3000/api/articles');
   }
 
   getArticleById(id: string): Observable<Article> {
-    return this.http.get<Article>(`${this.apiUrl}/${id}`);
+    return this.http.get<Article>(`http://localhost:3000/api/article/${id}`);
+  }
+
+  generateArticle(titre_article : string, auteur_article : string): Observable<Article> {
+    return this.http.post<Article>('http://localhost:3000/api/generate-article', {
+      "titre" : titre_article,
+      "auteur" : auteur_article
+    });
   }
 }
