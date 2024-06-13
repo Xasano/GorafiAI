@@ -81,7 +81,7 @@ app.post('/api/generate-article', async (req, res) => {
       let tts = await openai.audio.speech.create({
         model: "tts-1",
         voice: "onyx",
-        input: "Vous écoutez l'article : "+ req.body.titre +". "+ resume +". "+ contenu +". L'auteur de cet article est "+ req.body.auteur +".",
+        input: "Vous écoutez l'article : "+ req.body.titre +"."+ contenu +". L'auteur de cet article est "+ req.body.auteur +".",
       });
       let buffer = Buffer.from(await tts.arrayBuffer());
       let mp3dir = `./mp3/${article._id}.mp3`;
