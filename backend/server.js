@@ -4,8 +4,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
+require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
+const mp3dir = path.resolve("./mp3/");
 
 // Init du serveur express
 const app = express();
@@ -47,7 +51,7 @@ app.post('/api/articles', async (req, res) => {
   let resume = response.choices[0].message.content;
 
   response = await openai.chat.completions.create({
-    messages: [{"role": "system", "content": "Voici le résumé de l'article : "+ resume +". Imagine que cet article est écrit par un journaliste spécialisé dans l'humour et les jeux de mots. Rédige le contenu de l'article en gardant le ton humoristique et décalé du résumé, tout en apportant des informations complémentaires sur le sujet. Assure-toi que le ton reste léger et divertissant, tout en transmettant les points clés de l'article de manière humoristique. N'oublie pas d'intégrer des anecdotes imaginaires et des commentaires sarcastiques pour captiver le lecteur avec humour."}],
+    messages: [{"role": "system", "content": "Voici le résumé de l'article : "+ resume +". Imagine que cet article est écrit par un journaliste spécialisé dans l'humour et les jeux de mots. Rédige le contenu de l'article en gardant le ton humoristique et décalé du résumé, tout en apportant des informations complémentaires sur le sujet. Assure-toi que le ton reste léger et divertissant, tout en transmettant les points clés de l'article de manière humoristique. N'oublie pas d'intégrer des anecdotes imaginaires et des commentaires sarcastiques pour captiver le lecteur avec humour. N'oublie pas que tu dois faire 800 charactères minimum"}],
     model: "gpt-3.5-turbo",
     });
   let contenu = response.choices[0].message.content;
@@ -58,14 +62,7 @@ app.post('/api/articles', async (req, res) => {
     n: 1,
     size: "1024x1024",
     });
-  let photo = response.data[0].url;
-  photo = downloadImageAsBase64(imageUrl);
-
-  response = await openai.chat.completions.create([{
-    messages: {"role": "system", "content": "You are a helpful assistant."},
-    model: "gpt-3.5-turbo",
-    }]);
-  let tts = response.choices[0].message.content;
+  let photo = await downloadImageAsBase64(response.data[0].url);
 
   const articleData = {
     titre: req.body.titre,
@@ -74,15 +71,53 @@ app.post('/api/articles', async (req, res) => {
     auteur: req.body.auteur,
     dateCreation: new Date(),
     photo: photo,
-    mp3: tts,
+    mp3: null,
   };
 
   try {
-      const newArticle = new Article();
+      const newArticle = new Article(articleData);
       const article = await newArticle.save();
+
+      let tts = await openai.audio.speech.create({
+        model: "tts-1",
+        voice: "onyx",
+        input: "Vous écoutez l'article : "+ req.body.titre +". "+ resume +". "+ contenu +". L'auteur de cet article est "+ req.body.auteur +".",
+      });
+      let buffer = Buffer.from(await tts.arrayBuffer());
+      let mp3dir = `./mp3/${article._id}.mp3`;
+      if (!fs.existsSync('./mp3')){
+        fs.mkdirSync('./mp3');
+      }
+        
+      await fs.promises.writeFile(mp3dir, buffer);
+      await Article.findByIdAndUpdate(article._id, { mp3: mp3dir });
+
       res.status(200).send(article);
   } catch (err) {
       res.status(500).send(err);
+  }
+});
+
+app.get('/api/articles', async (req, res) => {
+  // Récupérer tous les articles
+  try {
+    let articles = await Article.find();
+    res.status(200).send(articles);
+  } catch (err) {
+    res.status(404).send(err);
+  }
+});
+
+app.get('/api/article/:id', async (req, res) => {
+  // Récupérer un article par son ID
+  try {
+    const article = await Article.findById(req.params.id);
+    const mp3Path = article.mp3;
+    const mp3Data = fs.readFileSync(mp3Path);
+    article.mp3 = mp3Data;
+    res.status(200).send(article);
+  } catch (err) {
+    res.status(404).send(err);
   }
 });
 

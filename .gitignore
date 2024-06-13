@@ -29,3 +29,6 @@ GorafiAI/Thumbs.db
 
 # MongoFiles
 mongodb_data_container
+
+# Env
+/backend/.env
