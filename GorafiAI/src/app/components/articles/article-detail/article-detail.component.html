@@ -1,37 +1,14 @@
-<!-- articles-detail.component.html statique -->
-<div class="articles-detail">
-    <div class="articles-detail-text">
-      <h1>Lorsque Luffy apprend que Macron dissoud l'assemblé</h1>
-      <p>Suite à la prise de parole de Macron Luffy tira une de c'est tete</p>
-      <img src="https://wallpaperaccess.com/full/5666772.jpg" alt="Futuristic Pet Robot" class="articles-detail-image">
-    </div>
+<div class="articles-detail" *ngIf="article">
+  <div class="articles-detail-text">
+    <h1>{{ article.titre }}</h1>
+    <p>{{ article.resume }}</p>
+    <img [src]="article.photo" alt="{{ article.titre }}" class="articles-detail-image">
+    <p>Contenu: {{ article.contenu }}</p>
+    <p>Auteur: {{ article.auteur }}</p>
+    <p>Date de création: {{ article.dateCreation | date: 'longDate' }}</p>
+    <audio controls *ngIf="article.mp3">
+      <source [src]="article.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+  </div>
 </div>
-
-
-<!-- articles-detail.component.html dynamique test-->
-<div class="articles-detail">
-    <div class="articles-detail-text">
-      <h1>{{ article.titre }}</h1>
-      <p>{{ article.resume }}</p>
-      <img [src]="article.photo" alt="{{ article.titre }}" class="articles-detail-image">
-    </div>
-</div>
-
-
-<!-- articles-detail.component.html dynamique all data-->
-<div class="articles-detail">
-    <div class="articles-detail-text">
-      <h1>{{ article.titre }}</h1>
-      <p>{{ article.resume }}</p>
-      <img [src]="article.photo" alt="{{ article.titre }}" class="articles-detail-image">
-      <p>Contenu: {{ article.contenu }}</p>
-      <p>Auteur: {{ article.auteur }}</p>
-      <p>Date de création: {{ article.dateCreation | date: 'longDate' }}</p>
-      <audio controls>
-        <source [src]="article.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'élément audio.
-      </audio>
-    </div>
-</div>
-
-

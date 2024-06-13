@@ -1,4 +1,4 @@
-<!-- articles.component.html -->
+<!-- articles.component.html statique-->
 <div class="articles">
     <div class="articles-text">
       <h1>Nouvelle Tendance : Les Licornes Domestiques</h1>
@@ -15,11 +15,15 @@
     </div>
 </div>
 
-
-<div *ngFor="let article of articles" class="article-preview">
-  <a [routerLink]="['/articles', article.id]">
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.description }}</p>
-    <img [src]="article.imageUrl" alt="{{ article.title }}">
+<!-- articles.component.html dynamique -->
+<div *ngFor="let article of articles" class="articles">
+  <a [routerLink]="['/articles', article.id]" class="articles-text">
+    <div>
+      <h1>{{ article.titre }}</h1>
+      <p>{{ article.resume }}</p>
+      <img [src]="article.photo" alt="{{ article.titre }}" class="articles-image">
+    </div>
+    <!--<img [src]="article.photo" alt="{{ article.titre }}" class="articles-image">-->
   </a>
 </div>
+
