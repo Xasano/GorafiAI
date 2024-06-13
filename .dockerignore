@@ -1,0 +1,6 @@
+GorafiAI/.vscode/
+.git/
+GorafiAI/dump/
+*/node_modules/
+GorafiAI/.gitignore
+GorafiAI/.angular

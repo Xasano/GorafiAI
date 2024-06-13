@@ -5,27 +5,52 @@ services:
     image: mongo:latest
     ports:
       - 27017:27017
+    restart: always
     volumes:
       - ./mongodb_data_container:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
-      - MONGO_INITDB_ROOT_DATABASE=GorafiAI_mongodb
+      - MONGO_INITDB_DATABASE=gorafiaidb
     networks:
       - asmd_net
+
+  api:
+    container_name: backend_container
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/gorafiaidb?authSource=admin
+    ports:
+      - 3000:3000
+    restart: always
+    depends_on:
+      - mongodb
+    networks:
+      - asmd_net
+    volumes:
+      - mp3data:/usr/src/app/mp3
 
   angular:
     container_name: GorafiAI_Website_container
     build:
       context: ./GorafiAI
       dockerfile: Dockerfile
+    environment:
+      API_URL: http://api:3000
+    restart: always
     ports:
       - 4200:4200
     depends_on:
-      - mongodb
+      - api
     networks:
       - asmd_net
 
 networks:
   asmd_net:
     driver: bridge
+
+volumes:
+  mp3data:
+  mongodb_data_container:
