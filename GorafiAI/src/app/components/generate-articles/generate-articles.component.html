@@ -1,15 +1,34 @@
-<div class="articles">
-    <div class="articles-text">
-      <h1>Nouvelle Tendance : Les Licornes Domestiques</h1>
-      <p>Les licornes sont la dernière tendance en matière d'animaux de compagnie, avec des conseils sur l'entretien, la nourriture et les accessoires pour ces créatures imaginaires.</p>
-      <img src="https://i.pinimg.com/originals/9b/d9/dd/9bd9dd2bfb0031d794f3d76cc43cb408.jpg" alt="Descriptive Alt Text" class="articles-image">
+<div class="generate-article-container">
+  <h2>Inscrire un article</h2>
+  <form (ngSubmit)="generateArticle(articleForm)" #articleForm="ngForm">
+    <div class="form-group">
+      <label for="title">Titre de l'article</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        required
+        name="title"
+        ngModel
+      />
+      <div *ngIf="articleForm.form.controls['title']?.invalid && (articleForm.form.controls['title']?.dirty || articleForm.form.controls['title']?.touched)" class="alert alert-danger">
+        Le titre est requis.
+      </div>
     </div>
-  </div>
-
-  <div class="articles">
-    <div class="articles-text">
-      <h1>Tempete de boulette géantes à Pompei</h1>
-      <p>Suite à l'irruption du volcan des centaines de boulettegéntes sont tombés sur la ville</p>
-      <img src="https://th.bing.com/th/id/R.78ade77b326bc5e0bfe04c2acae697a5?rik=r9Um8UFrv39Acg&riu=http%3a%2f%2fstatic.pix-geeks.com%2f2016%2f06%2ftempete-de-boulettes-geantes-59825-600x315.jpg&ehk=oFVbyT8nPQ%2boCwbqpKphDEu65FxIj%2fMLedU82GD6BxU%3d&risl=&pid=ImgRaw&r=0" alt="Futuristic Pet Robot" class="articles-image">
+    <div class="form-group">
+      <label for="author">Nom de l'auteur</label>
+      <input
+        type="text"
+        id="author"
+        class="form-control"
+        required
+        name="author"
+        ngModel
+      />
+      <div *ngIf="articleForm.form.controls['author']?.invalid && (articleForm.form.controls['author']?.dirty || articleForm.form.controls['author']?.touched)" class="alert alert-danger">
+        Le nom est requis.
+      </div>
     </div>
+    <button type="submit" class="btn-submit">Générer</button>
+  </form>
 </div>

@@ -1,6 +1,6 @@
 export class Article {
     constructor(
-        public id: string,
+        public _id: string,
         public titre: string,
         public resume: string,
         public contenu: string,

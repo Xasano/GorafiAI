@@ -30,7 +30,7 @@ services:
     networks:
       - asmd_net
     volumes:
-      - mp3data:/usr/src/app/mp3
+      - ./mp3data:/usr/src/app/mp3
 
   angular:
     container_name: GorafiAI_Website_container

@@ -2,12 +2,12 @@
   <div class="articles-detail-text">
     <h1>{{ article.titre }}</h1>
     <p>{{ article.resume }}</p>
-    <img [src]="article.photo" alt="{{ article.titre }}" class="articles-detail-image">
-    <p>Contenu: {{ article.contenu }}</p>
+    <img [src]="getImageSrc(article.photo)" alt="{{ article.titre }}" class="articles-detail-image">
+    <p>{{ article.contenu }}</p>
     <p>Auteur: {{ article.auteur }}</p>
     <p>Date de création: {{ article.dateCreation | date: 'longDate' }}</p>
-    <audio controls *ngIf="article.mp3">
-      <source [src]="article.mp3" type="audio/mpeg">
+    <audio controls *ngIf="safeMp3">
+      <source [src]="safeMp3" type="audio/mpeg">
       Votre navigateur ne supporte pas l'élément audio.
     </audio>
   </div>
