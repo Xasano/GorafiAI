@@ -1,6 +1,6 @@
 <div class="generate-article-container">
   <h2>Inscrire un article</h2>
-  <form (ngSubmit)="generateArticle(article?.title, article?.author)" #articleForm="ngForm">
+  <form (ngSubmit)="generateArticle(articleForm)" #articleForm="ngForm">
     <div class="form-group">
       <label for="title">Titre de l'article</label>
       <input
@@ -9,10 +9,9 @@
         class="form-control"
         required
         name="title"
-        #title="ngModel"
         ngModel
       />
-      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+      <div *ngIf="articleForm.form.controls['title']?.invalid && (articleForm.form.controls['title']?.dirty || articleForm.form.controls['title']?.touched)" class="alert alert-danger">
         Le titre est requis.
       </div>
     </div>
@@ -24,10 +23,9 @@
         class="form-control"
         required
         name="author"
-        #author="ngModel"
         ngModel
       />
-      <div *ngIf="author.invalid && (author.dirty || author.touched)" class="alert alert-danger">
+      <div *ngIf="articleForm.form.controls['author']?.invalid && (articleForm.form.controls['author']?.dirty || articleForm.form.controls['author']?.touched)" class="alert alert-danger">
         Le nom est requis.
       </div>
     </div>
