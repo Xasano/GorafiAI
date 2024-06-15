@@ -39,7 +39,7 @@ OPENAI_API_KEY=votre_clé
 cd ..
 ```
 
-5. Lancer le docker-compose :
+4. Lancer le docker-compose :
 ```bash
 docker-compose up --build
 ```
