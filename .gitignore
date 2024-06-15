@@ -22,6 +22,7 @@ GorafiAI/coverage
 GorafiAI/libpeerconnection.log
 GorafiAI/testem.log
 GorafiAI/typings
+mp3data/
 
 # System files
 GorafiAI/.DS_Store
