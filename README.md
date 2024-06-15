@@ -44,7 +44,7 @@ cd ..
 docker-compose up --build
 ```
 
-Si vous avez bien suivi ces étpaes, le projet devrait se lancer. Le site web est accessible à l'adresse localhost:4200/ en local.
+Si vous avez bien suivi ces étpaes, le projet devrait se lancer. Le site web est accessible à l'adresse <p href="localhost:4200/">http://localhost:4200/</p> en local.
 
 ## <span id="system-architecture">🏗️ Architecture du système</span>
 
