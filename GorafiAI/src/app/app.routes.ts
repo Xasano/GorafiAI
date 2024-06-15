@@ -5,6 +5,7 @@ import { ArticleDetailComponent } from './components/articles/article-detail/art
 import { TeamComponent } from './components/team/team.component';
 import { GenerateArticlesComponent } from './components/generate-articles/generate-articles.component';
 
+
 export const routes: Routes = [
   { path: '', redirectTo: '/articles', pathMatch: 'full' },
   { path: 'articles', component: ArticlesComponent },

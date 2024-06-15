@@ -1,3 +1,6 @@
+
+<app-header></app-header>
+
 <!-- articles.component.html dynamique -->
 <div *ngFor="let article of articles" class="articles">
   <a [routerLink]="['/articles', article._id]" class="articles-text">
@@ -9,3 +12,4 @@
   </a>
 </div>
 
+<app-footer></app-footer>
