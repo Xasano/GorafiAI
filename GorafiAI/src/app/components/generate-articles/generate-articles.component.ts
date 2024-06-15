@@ -1,15 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
 import { ArticleService } from '../../services/article.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-generate-articles',
   standalone: true,
-  imports: [CommonModule, RouterModule, HeaderComponent, FooterComponent, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './generate-articles.component.html',
   styleUrls: ['./generate-articles.component.css']
 })

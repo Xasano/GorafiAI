@@ -2,7 +2,7 @@
   <div class="articles-detail-text">
     <h1>{{ article.titre }}</h1>
     <p>{{ article.resume }}</p>
-    <img [src]="article.photo" alt="{{ article.titre }}" class="articles-detail-image">
+    <img [src]="getImageSrc(article.photo)" alt="{{ article.titre }}" class="articles-detail-image">
     <p>Contenu: {{ article.contenu }}</p>
     <p>Auteur: {{ article.auteur }}</p>
     <p>Date de création: {{ article.dateCreation | date: 'longDate' }}</p>

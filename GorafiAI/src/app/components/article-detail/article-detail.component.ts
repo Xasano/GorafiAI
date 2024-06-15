@@ -26,9 +26,13 @@ export class ArticleDetailComponent implements OnInit {
         const id = params.get('id') || 'defaultId';
         return this.articleService.getArticleById(id);
       })
-    ).subscribe(
-      article => this.article = article,
-      error => console.error('Erreur lors de la récupération de l\'article', error)
-    );
+    ).subscribe({
+      next: article => this.article = article,
+      error: error => console.error('Erreur lors de la récupération de l\'article', error)
+    });
+  }
+
+  getImageSrc(base64String: string): string {
+    return `data:image/png;base64,${base64String}`;
   }
 }

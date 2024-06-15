@@ -7,7 +7,7 @@ import { GenerateArticlesComponent } from './components/generate-articles/genera
 import { NotFoundComponent } from './components/not-found/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: '/', redirectTo: '/articles', pathMatch: 'full' },
+  { path: '', redirectTo: '/articles', pathMatch: 'full' },
   { path: 'articles', component: ArticlesComponent },
   { path: 'article/:id', component: ArticleDetailComponent },
   { path: 'team', component: TeamComponent },
