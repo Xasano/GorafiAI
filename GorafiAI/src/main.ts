@@ -10,7 +10,7 @@ bootstrapApplication(ArticlesComponent, {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes),
-    provideHttpClient(withFetch())]
+    provideHttpClient(withFetch())
+  ]
 })
   .catch((err) => console.error(err));
-
