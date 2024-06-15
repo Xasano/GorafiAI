@@ -114,7 +114,8 @@ app.get('/api/article/:id', async (req, res) => {
     const article = await Article.findById(req.params.id);
     const mp3Path = article.mp3;
     const mp3Data = fs.readFileSync(mp3Path);
-    article.mp3 = mp3Data;
+    const base64Mp3 = Buffer.from(mp3Data).toString('base64');
+    article.mp3 = base64Mp3;
     res.status(200).send(article);
   } catch (err) {
     res.status(404).send(err);
