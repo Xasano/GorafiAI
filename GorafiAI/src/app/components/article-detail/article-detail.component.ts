@@ -57,7 +57,6 @@ export class ArticleDetailComponent implements OnInit {
       const blob = new Blob([bytes], { type: 'audio/mp3' });
       const unsafeUrl = URL.createObjectURL(blob);
       // Bypass sanitization and assign the SafeUrl to a new property
-      console.log(this.article.mp3);
       this.safeMp3 = this.sanitizer.bypassSecurityTrustUrl(unsafeUrl);
     }
   }
