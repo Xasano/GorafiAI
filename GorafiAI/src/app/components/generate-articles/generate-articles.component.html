@@ -1,4 +1,4 @@
-<div class="container">
+<div class="generate-article-container">
   <h2>Inscrire un article</h2>
   <form (ngSubmit)="generateArticle(article?.title, article?.author)" #articleForm="ngForm">
     <div class="form-group">
@@ -31,7 +31,6 @@
         Le nom est requis.
       </div>
     </div>
+    <button type="submit" class="btn-submit">Générer</button>
   </form>
-</div>   
-
-
+</div>
