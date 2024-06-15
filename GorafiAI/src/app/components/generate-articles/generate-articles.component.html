@@ -1,9 +1,41 @@
+
 <div class="generate-articles-container">
-  <h1>Génération d'articles</h1>
-  <p>Ceci est une page pour générer des articles dynamiquement.</p>
-  <div class="form-container">
-      <input type="text" id="article-title" placeholder="Entrez le titre de l'article">
-      <input type="text" id="article-author" placeholder="Nom de l'auteur">
-      <button onclick="generateArticle()">Générer</button>
-  </div>
+
+<div class="container">
+  <h2>Inscrire un article</h2>
+  <form (ngSubmit)="generateArticle(article?.title, article?.author)" #articleForm="ngForm">
+    <div class="form-group">
+      <label for="title">Titre de l'article</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        required
+        name="title"
+        #title="ngModel"
+        ngModel
+      />
+      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+        Le titre est requis.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="author">Nom de l'auteur</label>
+      <input
+        type="text"
+        id="author"
+        class="form-control"
+        required
+        name="author"
+        #author="ngModel"
+        ngModel
+      />
+      <div *ngIf="author.invalid && (author.dirty || author.touched)" class="alert alert-danger">
+        Le nom est requis.
+      </div>
+    </div>
+
 </div>
+
+
+

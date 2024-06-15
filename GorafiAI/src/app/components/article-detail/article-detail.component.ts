@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { ArticleService } from '../../../services/article.service';
-import { Article } from '../../../models/article';
+import { ArticleService } from '../../services/article.service';
+import { Article } from '../../models/article';
 
 @Component({
   selector: 'app-article-detail',
