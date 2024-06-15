@@ -50,8 +50,8 @@ Si vous avez bien suivi ces étpaes, le projet devrait se lancer. Le site web es
 
 Le système est décomposé en 3 services :
 - **🌐 Site Angular** : Interface utilisateur développée avec Angular.
-- **🏠 Serveur Express (NodeJs) : Backend de l'application où les requêtes pour open AI sont faites et où sont stockés les .mp3 généré par l'api d'OPENAI agit comme middleware entre le site web et la base de données
-- **🤝 Base de donnée MongoDB : Base de donnée qui stocke sous forme de document les articles
+- **🏠 Serveur Express (NodeJs)** : Backend de l'application où les requêtes pour open AI sont faites et où sont stockés les .mp3 généré par l'api d'OPENAI agit comme middleware entre le site web et la base de données
+- **🤝 Base de donnée MongoDB** : Base de donnée qui stocke sous forme de document les articles
 
 ## <span id="source">Source des travaux qui ont été repris dans notre projet</span>
 La page erreur 404 a été repris de ce projet sur codepen.io : https://codepen.io/raichutd/pen/JjmKjbP
